@@ -1,49 +1,57 @@
+"use client"
+import { useState } from 'react'
 import React from 'react'
 
 const Determinant = () => {
+    const [matrixdim, setmatrixdim] = useState({ dim: 1})
+    const handleMatrixARowsChange = (value) => {
+    setmatrixdim((prev) => ({ ...prev, dim: value }));
+  };
   return (
-    <main className="min-w-screen grid grid-cols-[55vw_20vw] bg-[#676569]">
+    <main className="max-w-screen grid grid-cols-[55vw_20vw] bg-[#676569]">
       
       <div className="mainwindow bg-[#424143] mt-[7vh] ml-2 rounded-2xl">
 
-        <h1 className="text-3xl flex justify-center mt-7 font-bold">Matrix Calculator</h1>
-        <p className="text-[15px] text-[#B5B5B5] m-10 mt-10">Discover our free, advanced matrix calculator. It provides all essential matrix operations and methods for solving systems of simultaneous linear equations, making it a perfect tool for students, engineers, and mathematicians.
-        From basic homework to real-world problems, Reshish matrix calculator has you covered.</p>
+        <h1 className="text-3xl flex justify-center mt-7 font-bold">Matrix Multiplication Calculator</h1>
+        <p className="text-[15px] text-[#B5B5B5] mx-10 mt-10">Here you can calculate a determinant of a matrix with complex numbers online for free with a very detailed solution. Determinant is calculated by reducing a matrix to row echelon form and multiplying its main diagonal elements.</p>
 
-        <div className="text-[15px] text-[#B5B5B5] m-10 mt-10">
+        <p className="text-[15px] text-[#B5B5B5] mx-10 mt-3">Have questions? Read the instructions.</p>
 
-        <h2 className="text-[17px] font-semibold mt-3">Key Features :</h2>
+        <div className="text-[15px] text-[#B5B5B5] m-10 mt-7">
 
-        <h3 className="ext-[16px] font-semibold underline mt-3">Step-by-step solution:</h3>
-        <p>Our advanced calculator provides a detailed step-by-step solution, making it invaluable for students. For methods requiring intricate calculations it offers a very detailed solution.</p>
+        <h2 className="text-[17px] font-semibold mt-2">About the method</h2>
 
-        <h3 className="text-[16px] font-semibold underline mt-3">Complex Numbers Support:</h3>
-        <p>Reshish matrix calculator stands out from other tools by supporting complex numbers seamlessly across all operations and methods, making it ideal for advanced calculations.</p>
+        <p className="text-[15px] text-[#B5B5B5] my-2 ">To calculate a determinant you need to do the following steps.</p>  
 
-        <h3 className="text-[16px] font-semibold underline mt-3">Continuous Calculation:</h3>
-        <p>Once you complete an operation, you can immediately perform another using either your original matrix or the calculated result. This eliminates the need to re-enter data and streamlines multi-step calculations.</p>
+        <ol className='list-decimal list-inside mx-7 space-y-1'>
+            <li>Set the matrix (must be square).</li>
+            <li>Reduce this matrix to row echelon form using elementary row operations so that all the elements below diagonal are zero.</li>
+            <li>Multiply the main diagonal elements of the matrix - determinant is calculated.</li>
+        </ol>
 
+        <p className="text-[15px] text-[#B5B5B5] mt-3 ">To understand determinant calculation better input any example, choose "very detailed solution" option and examine the solution.</p>
         </div>
-
-        <div className="text-[15px] text-[#B5B5B5] m-10 mt-10">
-
-        <h2 className="text-[17px] font-semibold mt-3">Why to use a Calculator : </h2>
-
-        <h3 className="ext-[16px] font-semibold underline mt-3">Error Reduction:</h3>
-        <p>Human calculation errors are common in intricate mathematical operations. Our reliable calculator eliminates arithmetic mistakes and ensures consistent results.</p>
-
-        <h3 className="text-[16px] font-semibold underline mt-3">Time Efficiency:</h3>
-        <p>Manual computation can take hours, while our tool delivers results in seconds. This is particularly valuable when working with large matrices.</p>
-
-        <h3 className="text-[16px] font-semibold underline mt-3">Enhanced Learning Experience:</h3>
-        <p>Reshish matrix calculator helps students master matrix operations through detailed step-by-step solutions. This significantly accelerates the learning process.</p>
-
-        </div>
-
+        <div className="flex items-center gap-10 justify-center mb-6 mt-20 ">
+        <label className=" font-medium ">Matrix A dimension:</label>
+        <div className="flex items-center space-x-2">
+          <input
+            type="number"
+            min="1"
+            defaultValue="1"
+            value={matrixdim.dim}
+            onChange={(e) => handleMatrixARowsChange(Number(e.target.value))}
+            className="w-16 text-center rounded-md bg-white text-black py-1"
+          />
+          </div>
+          <div className=" ml-5">
+        <button className="bg-[#424143] hover:bg-gray-600 px-3 py-1 rounded-md text-white font-semibold border border-gray-500">
+          Set matrices
+        </button>
       </div>
-      <div className="ads max-w-[25vw] min-h-screen "></div>
-      
-    </main>
+          </div>
+        </div>
+          <div className="ads max-w-[25vw] min-h-screen "></div>
+        </main>
   )
 }
 

@@ -35,7 +35,7 @@ export default function Home() {
     //   <button onClick={handleCalculate}>Calculate</button>
     //   <p>Result: {result}</p>
     // </div>
-    <main className="min-w-screen grid grid-cols-[55vw_20vw] bg-[#676569]">
+    <main className="max-w-screen grid grid-cols-[55vw_20vw] bg-[#676569]">
       
       <div className="mainwindow bg-[#424143] mt-[7vh] ml-2 rounded-2xl">
 
