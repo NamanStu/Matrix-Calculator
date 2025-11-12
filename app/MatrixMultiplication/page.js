@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import Link from 'next/link';
 import { useState } from 'react';
 
 const MatrixMultiplication = () => {
@@ -52,11 +53,19 @@ const MatrixMultiplication = () => {
                     matrixB: matrixBValues,
                 }),
             });
+            
             const data = await response.json();
+            
+            if (data.error) {
+                alert(data.error);
+                return;
+            }
+            
             setResult(data.result);
-            setShowModal(false);
+            // Keep the modal open to show the result
         } catch (error) {
             console.error("Error multiplying matrices:", error);
+            alert("Error calculating result. Please try again.");
         }
     };
 
@@ -114,27 +123,27 @@ const MatrixMultiplication = () => {
 //   };
 
   return (
-    <main className="max-w-screen grid grid-cols-[55vw_20vw] bg-[#676569]">
+    <main className="max-w-screen grid grid-cols-[55vw_19vw] bg-[#676569]">
       
       <div className="mainwindow bg-[#424143] mt-[7vh] ml-2 rounded-2xl">
 
         <h1 className="text-3xl flex justify-center mt-7 font-bold">Matrix Multiplication Calculator</h1>
-        <p className="text-[15px] text-[#B5B5B5] mx-10 mt-10">Here you can perform matrix multiplication with complex numbers online for free. However matrices can be not only two-dimensional, but also one-dimensional (vectors), so that you can multiply vectors, vector by matrix and vice versa.</p>
+        <p className="text-[15px] text-[#B5B5B5] mx-10 mt-10">You can use this tool to perform matrix multiplication with complex numbers at no cost. It supports both two-dimensional matrices and one-dimensional vectors, allowing you to multiply vectors, matrices, or any combination of the two.</p>
 
-        <p className="text-[15px] text-[#B5B5B5] mx-10 ">After calculation you can multiply the result by another matrix right there!</p>
-
-        <p className="text-[15px] text-[#B5B5B5] mx-10 ">Have questions? Read the instructions.</p>
+        <p className="text-[15px] text-[#B5B5B5] mx-10 "> If you have any further questions you can check out the instructions.</p>
 
         <div className="text-[15px] text-[#B5B5B5] m-10 mt-10">
 
         <h2 className="text-[17px] font-semibold mt-3">About the method</h2>
 
         <ol className='list-decimal list-inside mx-7 space-y-1'>
-            <li>The main condition of matrix multiplication is that the number of columns of the 1st matrix must equal to the number of rows of the 2nd one.</li>
-            <li>As a result of multiplication you will get a new matrix that has the same quantity of rows as the 1st one has and the same quantity of columns as the 2nd one.</li>
-            <li>For example if you multiply a matrix of 'n' x 'k' by 'k' x 'm' size you'll get a new one of 'n' x 'm' dimension.</li>
+            <li>The first condition for matrix multiplication is that the no. of columns of Matrix A should be equal to the no. of rows of Matrix B.</li>
+            <li>As the result of multiplication you will get a matrix with no. of rows equal to Matrix A and no. of columns equal to Matrix B removing the common part of both the matrix. </li>
+            <li>The main concept behind the matrix multiplication is that the rows of Matrix A gets multiplied to columns of Matrix B and then are added.</li>
         </ol>
 
+        <p className="text-[15px] text-[#B5B5B5] mt-3 ">For getting more knowledge about matrix multiplication you can refer to this file...</p>
+        <Link className='underline' href="https://drive.google.com/file/d/1EVEVZGHCrNBO2ZZXex42G2zzVF7pY8WU/view?usp=sharing" target="_blank">Matrix Multiplication</Link>
         <p className="text-[15px] text-[#B5B5B5] mt-3 ">To understand matrix multiplication better input any example and examine the solution.</p>
         <div className="bg-[#424143] flex gap-5 p-6 mt-10 rounded-md border border-gray-600 text-white max-w-xl mx-auto">
             <div>
@@ -241,25 +250,6 @@ const MatrixMultiplication = () => {
                             
                         </div>
 
-                        {result && (
-                            <div className="mt-6">
-                                <h3 className="text-lg font-semibold mb-2">Result Matrix:</h3>
-                                <div className="grid gap-2">
-                                    {result.map((row, rowIndex) => (
-                                        <div key={rowIndex} className="flex gap-2">
-                                            {row.map((value, colIndex) => (
-                                                <div
-                                                    key={colIndex}
-                                                    className="w-12 h-12 flex items-center justify-center bg-gray-800 rounded-md"
-                                                >
-                                                    {value}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
 
                     </div>
                     {/* Matrix B Input div */}
@@ -277,15 +267,15 @@ const MatrixMultiplication = () => {
                         </div>
 
                         {result && (
-                            <div className="mt-6">
-                                <h3 className="text-lg font-semibold mb-2">Result Matrix:</h3>
+                            <div className="mt-6 p-4 bg-gray-800 rounded-lg">
+                                <h3 className="text-lg font-semibold mb-4">Result Matrix:</h3>
                                 <div className="grid gap-2">
                                     {result.map((row, rowIndex) => (
                                         <div key={rowIndex} className="flex gap-2">
                                             {row.map((value, colIndex) => (
                                                 <div
                                                     key={colIndex}
-                                                    className="w-12 h-12 flex items-center justify-center bg-gray-800 rounded-md"
+                                                    className="w-12 h-12 flex items-center justify-center bg-gray-700 rounded-md"
                                                 >
                                                     {value}
                                                 </div>

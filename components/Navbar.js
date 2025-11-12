@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Navbar = () => {
   return (
-    <nav className=' flex justify-between items-center max-w-[90vw] m-auto mt-7 mb-5 cursor-pointer bg-[#676569] '>
+    <nav className=' flex justify-between items-center max-w-[90vw] m-auto mt-7 mb-5 cursor-pointer bg-[#424143] p-6 rounded-full px-10 '>
         <h1 className='text-amber-300 font-bold text-5xl '>
             <Link href="/">Matrix Calculator</Link>
             </h1>

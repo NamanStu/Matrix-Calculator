@@ -1,31 +1,38 @@
 import { NextResponse } from 'next/server';
-import { exec } from 'child_process';
-import { promisify } from 'util';
-
-const execAsync = promisify(exec);
 
 export async function POST(req) {
     try {
         const { matrixA, matrixB } = await req.json();
 
-        // Create input string for C program
-        const input = JSON.stringify({
-            matrixA: matrixA,
-            matrixB: matrixB
-        });
-
-        // Execute C program with input
-        const { stdout, stderr } = await execAsync(`echo '${input}' | ./matrix_multiply`);
-
-        if (stderr) {
-            throw new Error(stderr);
+        // Basic validation
+        if (!matrixA || !matrixB || !matrixA.length || !matrixB.length) {
+            throw new Error('Invalid matrix dimensions');
         }
 
-        // Parse the result from C program
-        const result = JSON.parse(stdout);
-
+        // Matrix multiplication implementation
+        const result = multiplyMatrices(matrixA, matrixB);
         return NextResponse.json({ result });
     } catch (error) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return NextResponse.json({ error: error.message }, { status: 400 });
     }
+}
+
+function multiplyMatrices(matrixA, matrixB) {
+    const rowsA = matrixA.length;
+    const colsA = matrixA[0].length;
+    const colsB = matrixB[0].length;
+    
+    // Initialize result matrix with zeros
+    const result = Array(rowsA).fill().map(() => Array(colsB).fill(0));
+    
+    // Perform multiplication
+    for (let i = 0; i < rowsA; i++) {
+        for (let j = 0; j < colsB; j++) {
+            for (let k = 0; k < colsA; k++) {
+                result[i][j] += matrixA[i][k] * matrixB[k][j];
+            }
+        }
+    }
+    
+    return result;
 }
