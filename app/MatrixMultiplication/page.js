@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import Link from 'next/link';
+import InlinePdfPreview from "@/components/InlinePdfPreview";
 import { useState } from 'react';
 
 const MatrixMultiplication = () => {
@@ -123,7 +124,7 @@ const MatrixMultiplication = () => {
 //   };
 
   return (
-    <main className="max-w-screen grid grid-cols-[55vw_19vw] bg-[#676569]">
+    <main className="max-w-screen min-h-[130vh] grid grid-cols-[55vw_19vw] bg-[#676569]">
       
       <div className="mainwindow bg-[#424143] mt-[7vh] ml-2 rounded-2xl">
 
@@ -143,7 +144,15 @@ const MatrixMultiplication = () => {
         </ol>
 
         <p className="text-[15px] text-[#B5B5B5] mt-3 ">For getting more knowledge about matrix multiplication you can refer to this file...</p>
-        <Link className='underline' href="https://drive.google.com/file/d/1EVEVZGHCrNBO2ZZXex42G2zzVF7pY8WU/view?usp=sharing" target="_blank">Matrix Multiplication</Link>
+
+        <div className="p-5 space-y-2">
+        <h1 className=" text-[#B5B5B5] font-bold text-[18px]">Refer for more Information about Matrices</h1>
+
+        <InlinePdfPreview
+        link="/docs/matrix_multiplication_complete.pdf"
+        label="Open PDF File"/>
+        </div>
+
         <p className="text-[15px] text-[#B5B5B5] mt-3 ">To understand matrix multiplication better input any example and examine the solution.</p>
         <div className="bg-[#424143] flex gap-5 p-6 mt-10 rounded-md border border-gray-600 text-white max-w-xl mx-auto">
             <div>
@@ -289,7 +298,7 @@ const MatrixMultiplication = () => {
                         <div className="flex justify-center gap-4 mt-6">
                             <button
                                 onClick={handleMultiply}
-                                className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-md"
+                                className="bg-yellow-600 hover:bg-yellow-700 px-6 py-2 rounded-md"
                             >
                                 Multiply
                             </button>

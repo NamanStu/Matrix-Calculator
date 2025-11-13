@@ -1,40 +1,9 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
 
 export default function Home() {
-  const pathname = usePathname();
-  // const [num1, setNum1] = useState("");
-  // const [num2, setNum2] = useState("");
-  // const [result, setResult] = useState("");
-
-  // const handleCalculate = async () => {
-  //   const res = await fetch("/api/calculate", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify({ num1, num2 })
-  //   });
-  //   const data = await res.json();
-  //   setResult(data.output || data.error);
-  // };
 
   return (
-    // <div style={{ padding: 20 }}>
-    //   <h1>Matrix / Number Calculator</h1>
-    //   <input
-    //     value={num1}
-    //     onChange={(e) => setNum1(e.target.value)}
-    //     placeholder="Enter first number"
-    //   />
-    //   <input
-    //     value={num2}
-    //     onChange={(e) => setNum2(e.target.value)}
-    //     placeholder="Enter second number"
-    //   />
-    //   <button onClick={handleCalculate}>Calculate</button>
-    //   <p>Result: {result}</p>
-    // </div>
+    
     <main className="max-w-screen grid grid-cols-[55vw_20vw] bg-[#676569]">
       
       <div className="mainwindow bg-[#424143] mt-[7vh] ml-2 rounded-2xl">

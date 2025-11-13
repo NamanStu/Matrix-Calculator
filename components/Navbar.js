@@ -8,8 +8,8 @@ const Navbar = () => {
             <Link href="/">Matrix Calculator</Link>
             </h1>
         <ul className='flex gap-4 font-semibold text-[16px]'>
-            <Link href="/instructions" className='cursor-pointer '>Instructions</Link>
-            <Link href="/Feedback" className='cursor-pointer '>Feedback</Link>
+            <Link href='/Instructions' className='cursor-pointer '>Instructions</Link>
+            <Link href="https://forms.gle/jaNZ1ZhKYUd3cNsi6" target="_blank" rel="noopener noreferrer" className='cursor-pointer '>Feedback</Link>
         </ul>
     </nav>
   )

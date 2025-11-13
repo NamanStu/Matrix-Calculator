@@ -1,10 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function MatrixInput({ title, rows, cols, onChange }) {
+function MatrixInput({ title, rows, cols, onChange }) {
   const [matrix, setMatrix] = useState(
     Array.from({ length: rows }, () => Array(cols).fill(""))
   );
+
+  useEffect(() => {
+    setMatrix(Array.from({ length: rows }, () => Array(cols).fill("")));
+  }, [rows, cols]);
 
   const handleChange = (r, c, value) => {
     const newMatrix = matrix.map((row, i) =>
@@ -37,3 +41,6 @@ export default function MatrixInput({ title, rows, cols, onChange }) {
       </div>
     </div>
   );
+}
+
+export default MatrixInput;

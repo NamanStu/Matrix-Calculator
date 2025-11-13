@@ -41,7 +41,7 @@ export default function Page() {
 
       <button
         onClick={handleSubmit}
-        className="px-6 py-2 bg-yellow-500 text-black rounded-lg mt-6 hover:bg-yellow-400"
+        className="px-6 py-2 bg-yellow-500 text-black rounded-lg mt-6 hover:bg-yellow-800"
       >
         Multiply
       </button>
