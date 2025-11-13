@@ -8,11 +8,11 @@ void matrixMultiply(int** matrixA, int** matrixB, int** result,
     // Using these int** for defining a matrix with rows and cols.  
     
     // MAIN MULTIPLICATION CODE...  
-    for(int i = 0; i < rowsA; i++) {
-        for(int j = 0; j < colsB; j++) {
-            result[i][j] = 0;
-            for(int k = 0; k < colsA; k++) {
-                result[i][j] += matrixA[i][k] * matrixB[k][j];
+    for(int a = 0; a < rowsA; a++) {
+        for(int b = 0; b < colsB; b++) {
+            result[a][b] = 0;
+            for(int c = 0; c < colsA; c++) {
+                result[a][b] += matrixA[a][c] * matrixB[c][b];
             }
         }
     }
