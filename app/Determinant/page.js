@@ -51,6 +51,13 @@ const Determinant = () => {
   };
 
   const handleCalculate = async () => {
+    // Validate that matrix is not all zeros
+    const matrixAllZeros = matrix.every((row) => row.every((val) => val === 0));
+    if (matrixAllZeros) {
+      alert("Error: Matrix cannot be all zeros. Please enter valid matrix values.");
+      return;
+    }
+
     try {
       setLoading(true);
       const res = await fetch("/api/determinant", {

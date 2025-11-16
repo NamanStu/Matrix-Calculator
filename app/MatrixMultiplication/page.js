@@ -43,6 +43,25 @@ const MatrixMultiplication = () => {
 
     // Handle matrix multiplication
     const handleMultiply = async () => {
+        // Validate that matrices are not all zeros
+        const matrixAAllZeros = matrixAValues.every(row => row.every(val => val === 0));
+        const matrixBAllZeros = matrixBValues.every(row => row.every(val => val === 0));
+        
+        if (matrixAAllZeros && matrixBAllZeros) {
+            alert("Error: Both matrices cannot be all zeros. Please enter valid matrix values.");
+            return;
+        }
+
+        if (matrixAAllZeros) {
+            alert("Error: Matrix A cannot be all zeros. Please enter valid matrix values.");
+            return;
+        }
+
+        if (matrixBAllZeros) {
+            alert("Error: Matrix B cannot be all zeros. Please enter valid matrix values.");
+            return;
+        }
+
         try {
             const response = await fetch("/api/compute", {
                 method: "POST",
@@ -63,7 +82,6 @@ const MatrixMultiplication = () => {
             }
             
             setResult(data.result);
-            // Keep the modal open to show the result
         } catch (error) {
             console.error("Error multiplying matrices:", error);
             alert("Error calculating result. Please try again.");
@@ -286,7 +304,7 @@ const MatrixMultiplication = () => {
                                                     key={colIndex}
                                                     className="w-12 h-12 flex items-center justify-center bg-gray-700 rounded-md"
                                                 >
-                                                    {value}
+                                                    {typeof value === "number" ? value.toFixed(1) : value}
                                                 </div>
                                             ))}
                                         </div>

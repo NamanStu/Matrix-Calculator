@@ -14,7 +14,7 @@ const Layout = () => {
 
             <Link href='/Determinant' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/Determinant" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Determinant</Link>
 
-            {/* <Link href='/InverseMatrix' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/InverseMatrix" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Inverse Matrix</Link>
+            <Link href='/InverseMatrix' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/InverseMatrix" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Inverse Matrix</Link>
 
             <Link href='/CramerRule' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/CramerRule" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Cramer's Rule</Link>
 
@@ -26,7 +26,7 @@ const Layout = () => {
 
             <Link href='/MatrixAddition' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/MatrixAddition" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Matrix Addition/Subtraction</Link>
 
-            <Link href='/InverseMatrixMethod' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/InverseMatrixMethod" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Inverse Matrix Method</Link> */}
+            <Link href='/InverseMatrixMethod' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/InverseMatrixMethod" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Inverse Matrix Method</Link>
 
             
           </ul>
