@@ -20,13 +20,13 @@ const Layout = () => {
 
             <Link href='/MatrixRank' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/MatrixRank" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Matrix Rank</Link>
 
-            <Link href='/MatrixPower' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/MatrixPower" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Matrix Power</Link>
+            {/* <Link href='/MatrixPower' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/MatrixPower" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Matrix Power</Link>
 
             <Link href='/MatrixTranspose' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/MatrixTranspose" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Matrix Transpose</Link>
 
             <Link href='/MatrixAddition' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/MatrixAddition" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Matrix Addition/Subtraction</Link>
 
-            <Link href='/InverseMatrixMethod' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/InverseMatrixMethod" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Inverse Matrix Method</Link>
+            <Link href='/InverseMatrixMethod' className={`border-gray-500 border w-full flex justify-center py-3 font-semibold text-sm ${ pathname === "/InverseMatrixMethod" ? "bg-yellow-600 text-white" : "hover:bg-yellow-600 hover:text-white"}`}>Inverse Matrix Method</Link> */}
 
             
           </ul>
