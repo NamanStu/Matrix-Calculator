@@ -13,7 +13,7 @@ const MatrixInput = ({ matrixSize, values, onChange, inputColor = "bg-black" }) 
           <input
             key={`${r}-${c}`}
             type="number"
-            value={values?.[r]?.[c] ?? 0}
+            value={values?.[r]?.[c] ?? 0}    // using optional chaining for getting the value[r][c], if any is not there then o.
             onChange={(e) => onChange(r, c, Number(e.target.value))}
             className={`w-12 h-12 text-center rounded-md text-black ${inputColor}`}
           />
@@ -24,18 +24,19 @@ const MatrixInput = ({ matrixSize, values, onChange, inputColor = "bg-black" }) 
 };
 
 const Determinant = () => {
-  const [matrixdim, setmatrixdim] = useState(2);
-  const [showModal, setShowModal] = useState(false);
+  const [matrixdim, setmatrixdim] = useState(2); // This contains the dimensions of the matrix.
+  const [showModal, setShowModal] = useState(false); // This controls the modal to be shown or not
   const [matrix, setMatrix] = useState([
     [0, 0],
     [0, 0],
-  ]);
-  const [result, setResult] = useState(null);
-  const [loading, setLoading] = useState(false);
+  ]); // This contains the main matrix
+  const [result, setResult] = useState(null); // This controls the result shown
+  const [loading, setLoading] = useState(false); // This controls the loading shown
 
   const handleDimensionChange = (value) => {
     const n = Number(value);
-    setmatrixdim(n);
+    setmatrixdim(n); 
+    // This changes the dimension upon what's the input.
 
     const newMatrix = Array.from({ length: n }, () =>
       Array.from({ length: n }, () => 0)
@@ -43,12 +44,13 @@ const Determinant = () => {
     setMatrix(newMatrix);
     setResult(null);
   };
+  // This converts all the previous entries to 0 by creating a new matrix and also changes the result to null..
 
   const handleMatrixInput = (row, col, value) => {
     const updated = matrix.map((r) => r.slice());
     updated[row][col] = value;
     setMatrix(updated);
-  };
+  }; // This puts the new values into the matrix..
 
   const handleCalculate = async () => {
     // Validate that matrix is not all zeros
@@ -56,7 +58,7 @@ const Determinant = () => {
     if (matrixAllZeros) {
       alert("Error: Matrix cannot be all zeros. Please enter valid matrix values.");
       return;
-    }
+    } // This checks the value of the matrix if its all zero or not
 
     try {
       setLoading(true);
@@ -65,13 +67,14 @@ const Determinant = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ matrix }),
       });
+      // using the pull request to connect to the backend of the determinants through api.
 
       const data = await res.json();
       if (!res.ok || data.error) {
         alert("Error: " + (data.error || "Unknown error"));
         setResult(null);
         return;
-      }
+      } // Checking if the result is some error or not.
       setResult(data.determinant);
     } catch (err) {
       console.error(err);

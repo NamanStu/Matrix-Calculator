@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include <stdio.h> // printf, scanf
+#include <stdlib.h> // fopens(), fclose()
+#include <math.h> //
 
 int main(void) {
     int n;

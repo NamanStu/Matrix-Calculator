@@ -1,3 +1,4 @@
+// This is the modal that is shown when we click on calculate to give the inputs...
 "use client";
 import { useState } from "react";
 import MatrixInput from "./components/MatrixInput";
@@ -16,9 +17,11 @@ export default function Page() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ matrixA, matrixB }),
     });
+    // Its creating the post request to the backend to give them the entered values so that it can calculate the result..
     const result = await response.json();
     alert("Result matrix: " + JSON.stringify(result));
-  };
+  }; 
+  // Its getting the result from the backend and then stringify it to output it on the frontend.
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center gap-6 bg-gray-900 text-white">

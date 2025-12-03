@@ -11,11 +11,12 @@ export default function InlinePdfPreview({ link, label }) {
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
     >
+      
       <Link
         href={"/docs/matrix_multiplication_complete.pdf"}
         target="_blank"
         className=" underline "
-      >
+      > 
         Futher Documentation with Examples.
       </Link>
 
