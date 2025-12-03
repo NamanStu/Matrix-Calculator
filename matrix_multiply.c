@@ -19,7 +19,7 @@ void matrixMultiply(int** matrixA, int** matrixB, int** result,
 }
 
 int main() {
-    // This code is making a memory space of 2096 to store text and Storing the text in that.
+    // This code is making a memory space of 4096 to store text and Storing the text in that.
     char buffer[4096];
     fgets(buffer, sizeof(buffer), stdin);
     
